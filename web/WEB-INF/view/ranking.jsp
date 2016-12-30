@@ -17,7 +17,7 @@
         <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a href="${pageContext.request.contextPath}" class="navbar-brand">Fórum com Gamification</a>
+                    <a href="${pageContext.request.contextPath}" class="navbar-brand">Esse eu já li!</a>
                     <button data-target="#navbar-main" data-toggle="collapse" type="button" class="navbar-toggle">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="navbar-collapse collapse" id="navbar-main">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="${pageContext.request.contextPath}/Topicos">Tópicos</a></li>
+                        <li><a href="${pageContext.request.contextPath}/Livros">Livros</a></li>
                     </ul>
                 </div>
             </div>

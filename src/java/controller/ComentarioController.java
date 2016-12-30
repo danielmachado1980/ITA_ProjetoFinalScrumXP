@@ -28,7 +28,7 @@ public class ComentarioController extends HttpServlet {
         comentario.setLogin(((Usuario) request.getSession().getAttribute("usuario")).getLogin());
         try {
             ComentarioBO.inserir(comentario);
-            response.sendRedirect(request.getContextPath() + "/Topicos/Exibir?topico=" + topico);
+            response.sendRedirect(request.getContextPath() + "/Livros/Exibir?topico=" + topico);
         } catch (Exception ex) {
             request.setAttribute("erro", ex.getMessage());
             request.getRequestDispatcher("/WEB-INF/view/topicos.jsp").forward(request, response);

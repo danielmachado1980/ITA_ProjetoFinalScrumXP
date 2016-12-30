@@ -11,14 +11,14 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Tela Tópicos</title>
+        <title>Livros</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css" />
     </head>
     <body>
         <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a href="${pageContext.request.contextPath}" class="navbar-brand">Fórum com Gamification</a>
+                    <a href="${pageContext.request.contextPath}" class="navbar-brand">Esse eu já li!</a>
                     <button data-target="#navbar-main" data-toggle="collapse" type="button" class="navbar-toggle">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -31,7 +31,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="${pageContext.request.contextPath}/Ranking">Ranking</a></li>
-                        <li><a href="${pageContext.request.contextPath}/Topicos/Inserir">Inserir Tópico</a></li>
+                        <li><a href="${pageContext.request.contextPath}/Livros/Inserir">Inserir Livro</a></li>
                     </ul>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h1 id="forms">Tópicos</h1>
+                            <h1 id="forms">Livros</h1>
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                                 <td>${topico.getCodigo()}</td>
                                 <td>${topico.getTitulo()}</td>
                                 <td>${topico.getUsuario().getNome()}</td>
-                                <td><a href="${pageContext.request.contextPath}/Topicos/Exibir?topico=<c:out value="${topico.getCodigo()}"/>">Exibir</a></td>
+                                <td><a href="${pageContext.request.contextPath}/Livros/Exibir?topico=<c:out value="${topico.getCodigo()}"/>">Exibir</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

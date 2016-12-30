@@ -19,9 +19,9 @@ import model.Usuario;
  *
  * @author Daniel
  */
-@WebServlet(urlPatterns = {"/Topicos",
-    "/Topicos/Inserir",
-    "/Topicos/Exibir"})
+@WebServlet(urlPatterns = {"/Livros",
+    "/Livros/Inserir",
+    "/Livros/Exibir"})
 public class TopicoController extends HttpServlet {
 
     @Override
@@ -62,7 +62,7 @@ public class TopicoController extends HttpServlet {
             topico.setLogin(((Usuario) request.getSession().getAttribute("usuario")).getLogin());
             try {
                 TopicoBO.inserir(topico);
-                response.sendRedirect(request.getContextPath() + "/Topicos");
+                response.sendRedirect(request.getContextPath() + "/Livros");
             } catch (Exception ex) {
                 request.setAttribute("erro", ex.getMessage());
                 request.getRequestDispatcher("/WEB-INF/view/insereTopico.jsp").forward(request, response);

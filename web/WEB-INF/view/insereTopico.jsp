@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h1 id="forms">Inserir Tópico</h1>
+                            <h1 id="forms">Inserir Livro</h1>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-10 col-lg-offset-2">
-                                            <a href="${pageContext.request.contextPath}/Topicos" class="btn btn-default" role="button">Cancelar</a>
+                                            <a href="${pageContext.request.contextPath}/Livros" class="btn btn-default" role="button">Cancelar</a>
                                             <button type="submit" class="btn btn-primary">Enviar</button>
                                         </div>
                                     </div>
