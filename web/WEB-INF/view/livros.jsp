@@ -31,7 +31,6 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="${pageContext.request.contextPath}/Ranking">Ranking</a></li>
-                        <li><a href="${pageContext.request.contextPath}/Livros/Inserir">Inserir Livro</a></li>
                     </ul>
                 </div>
             </div>
@@ -58,16 +57,16 @@
                         <tr>
                             <th>#</th>
                             <th>Título</th>
-                            <th>Usuário</th>
+                            <th>Autor</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="topico" items="${topicos}">
+                        <c:forEach var="livro" items="${livros}">
                             <tr> 
-                                <td>${topico.getCodigo()}</td>
-                                <td>${topico.getTitulo()}</td>
-                                <td>${topico.getUsuario().getNome()}</td>
-                                <td><a href="${pageContext.request.contextPath}/Livros/Exibir?topico=<c:out value="${topico.getCodigo()}"/>">Exibir</a></td>
+                                <td>${livro.getCodigo()}</td>
+                                <td>${livro.getTitulo()}</td>
+                                <td>${livro.getAutor()}</td>
+                                <td><a href="${pageContext.request.contextPath}/Livros/Exibir?livro=<c:out value="${livro.getCodigo()}"/>">Exibir</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

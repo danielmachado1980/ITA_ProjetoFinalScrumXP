@@ -5,22 +5,18 @@
  */
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author daniel
  */
-public class Topico {
+public class Livro {
 
     private int codigo;
     private String titulo;
+    private String autor;
     private String conteudo;
-    private String login;
-    private Usuario usuario;
-    private List<Comentario> comentarios = new ArrayList<>();
-
+    private int paginas;
+    
     public int getCodigo() {
         return codigo;
     }
@@ -36,7 +32,15 @@ public class Topico {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+    
+    public String getAutor() {
+        return autor;
+    }
 
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+    
     public String getConteudo() {
         return conteudo;
     }
@@ -45,27 +49,13 @@ public class Topico {
         this.conteudo = conteudo;
     }
 
-    public String getLogin() {
-        return login;
+    public int getPaginas() {
+        return paginas;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setPaginas(int paginas) {
+        this.paginas = paginas;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public List<Comentario> getComentarios() {
-        return comentarios;
-    }
-
-    public void setComentarios(List<Comentario> comentario) {
-        this.comentarios = comentario;
-    }
+    
 }

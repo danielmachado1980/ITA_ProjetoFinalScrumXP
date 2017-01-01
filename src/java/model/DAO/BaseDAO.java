@@ -38,7 +38,7 @@ public class BaseDAO {
         connection = null;
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:postgresql://127.0.0.1:5432/coursera", "postgres",
+                    "jdbc:postgresql://127.0.0.1:5432/livraria", "postgres",
                     "dan");
 
         } catch (Exception e) {

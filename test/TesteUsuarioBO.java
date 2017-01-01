@@ -21,7 +21,7 @@ public class TesteUsuarioBO {
 
     @Before
     public void setUp() throws Exception {
-        jdt = new JdbcDatabaseTester("org.postgresql.Driver", "jdbc:postgresql://127.0.0.1:5432/coursera", "postgres",
+        jdt = new JdbcDatabaseTester("org.postgresql.Driver", "jdbc:postgresql://127.0.0.1:5432/livraria", "postgres",
                 "dan");
         FlatXmlDataFileLoader loader = new FlatXmlDataFileLoader();
         jdt.setDataSet(loader.load("/inicio.xml"));
@@ -65,6 +65,7 @@ public class TesteUsuarioBO {
         usuario.setNome("MARIA EDUARDA GUERRA");
         usuario.setPontos(45);
         usuario.setSenha("duda123");
+        usuario.setTrofeus(10);
         UsuarioBO.inserir(usuario);
 
         usuario = new Usuario();
@@ -73,6 +74,7 @@ public class TesteUsuarioBO {
         usuario.setNome("MARIA EDUARDA GUERRA2");
         usuario.setPontos(45);
         usuario.setSenha("duda1234");
+        usuario.setTrofeus(10);
         UsuarioBO.inserir(usuario);
 
         IDataSet currentDataset = jdt.getConnection().createDataSet();

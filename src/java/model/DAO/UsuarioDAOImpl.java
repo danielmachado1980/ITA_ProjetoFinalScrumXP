@@ -6,7 +6,6 @@
 package model.DAO;
 
 import interfaces.UsuarioDAO;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ public class UsuarioDAOImpl extends BaseDAO implements UsuarioDAO {
     
     @Override
     public void inserir(Usuario u) throws Exception {
-        String sql = "INSERT INTO usuario(login, email, nome, senha, pontos) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO usuario(login, email, nome, senha, pontos, trofeus) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement stm = getConnection().prepareStatement(sql);
             stm.setString(1, u.getLogin());
@@ -29,6 +28,7 @@ public class UsuarioDAOImpl extends BaseDAO implements UsuarioDAO {
             stm.setString(3, u.getNome());
             stm.setString(4, u.getSenha());
             stm.setInt(5, u.getPontos());
+            stm.setInt(6, u.getTrofeus());
             stm.executeUpdate();
         } catch (Exception e) {
             throw new Exception("Erro ao tentar inserir usuário", e);
@@ -49,6 +49,7 @@ public class UsuarioDAOImpl extends BaseDAO implements UsuarioDAO {
             usuario.setEmail(rs.getString("email"));
             usuario.setSenha(rs.getString("senha"));
             usuario.setPontos(rs.getInt("pontos"));
+            usuario.setTrofeus(rs.getInt("trofeus"));
         } catch (Exception e) {
             throw new Exception("Erro ao tentar recuperar usuário", e);
         }
@@ -67,11 +68,25 @@ public class UsuarioDAOImpl extends BaseDAO implements UsuarioDAO {
             throw new Exception("Erro ao tentar adicionar pontos para o usuário", e);
         }
     }
-
+    
+    public void adicionarTrofeus(String login, int trofeus) throws Exception {
+        String sql = "UPDATE usuario SET trofeus = trofeus + ? WHERE login = ?";
+        try {
+            PreparedStatement stm = getConnection().prepareStatement(sql);
+            stm.setInt(1, trofeus);
+            stm.setString(2, login);
+            stm.executeUpdate();
+        } catch (Exception e) {
+            throw new Exception("Erro ao tentar adicionar trofeus para o usuário", e);
+        }
+    }
+    
     @Override
     public List<Usuario> ranking() throws Exception {
         List<Usuario> lstUsuarios = new ArrayList<>();
-        String sql = "SELECT rank() over (order by pontos desc) as colocacao, u.* FROM usuario u ORDER BY pontos DESC";
+        String sql = "SELECT * FROM (SELECT rank() over (order by pontos desc) as colocacao, u.* "
+                                  + "FROM usuario u ORDER BY pontos DESC "
+                   + ") AS TEMP WHERE TEMP.COLOCACAO <=10";
         try {
             PreparedStatement stm = getConnection().prepareStatement(sql);
             ResultSet rs = stm.executeQuery();

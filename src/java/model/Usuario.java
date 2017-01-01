@@ -16,6 +16,7 @@ public class Usuario {
     private String nome;
     private String senha;
     private int pontos;
+    private int trofeus;
     private int colocacao;
 
     public String getLogin() {
@@ -58,6 +59,14 @@ public class Usuario {
         this.pontos = pontos;
     }
 
+    public int getTrofeus() {
+        return trofeus;
+    }
+
+    public void setTrofeus(int trofeus) {
+        this.trofeus = trofeus;
+    }
+
     public int getColocacao() {
         return colocacao;
     }
@@ -65,7 +74,7 @@ public class Usuario {
     public void setColocacao(int colocacao) {
         this.colocacao = colocacao;
     }
-
+    
     @Override
     public String toString() {
         return "Usuario [_login=" + login + "]";
